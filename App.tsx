@@ -4,7 +4,7 @@ import { Text, View, FlatList, StyleSheet, Image} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import ChatScreen from './Screens/HomeScreen';
+import ChatScreen from './Screens/ChatScreen';
 import AlbumScreen from './Screens/AlbumScreen';
 import ContactsScreen from './Screens/ContactScreen';
 
