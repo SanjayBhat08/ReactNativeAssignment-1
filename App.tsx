@@ -46,16 +46,24 @@ function AlbumScreen() {
 }
 
 function ContactsScreen() {
+  const [people, setPeople] = useState([
+    {name: 'Shaun',number: '1234567890', key: '1'},
+    {name: 'Jack',number: '1234567890', key: '2'},
+    {name: 'Alex', number: '1234567890', key: '3'},
+    {name: 'Alex', number: '1234567890',  key: '3'},
+    {name: 'Alex', number: '1234567890', key: '3'},
+    {name: 'Jane', number: '1234567890', key: '4'},
+    {name: 'Roy',  number: '1234567890', key: '5'},
+    {name: 'Steve', number: '1234567890', key: '6'},
+  ]);
   return (
-    // <View style={{ flex: 1 }}>
-    //   <FlatList
-    //     data={people}
-    //     renderItem={({item})=> (
-    //       <Text>item.name</Text>
-    //     )}
-    //   />
-    // </View>
-    <Text>Displaying Contact List</Text>
+    <><View>
+      <FlatList
+        data={people}
+        renderItem={({ item }) => (
+          <Text style={styles.listitem}>{item.name}   {item.number}</Text>
+        )} />
+    </View></>
   );
 }
 
@@ -83,16 +91,27 @@ const styles = StyleSheet.create({
   },
   imagestyle: {
     resizeMode: "contain",
-    height: 100,
+    height: 120,
     width: 200,
     marginBottom: 10,
   },
   textStyle: {
     alignItems: 'flex-start',
     justifyContent: 'center',
+    fontSize: 30,
     fontWeight: 'Bold',
-    backgroundColor: 'grey',
+    backgroundColor: 'red',
     borderBottomWidth: 8,
     borderBottomColor: 'white',
+  },
+  listitem: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 24,
+    padding: 20,
+    backgroundColor: 'grey',
+    fontSize: 20,
+    marginHorizontal: 5,
+    marginBottom: 10,
   },
 });
