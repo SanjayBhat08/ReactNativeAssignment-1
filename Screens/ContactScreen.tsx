@@ -3,8 +3,6 @@ import { View,SafeAreaView, FlatList, Text } from "react-native";
 import { useState } from "react";
 import { StyleSheet } from "react-native";
 import ContactComponent from "../components/contactcomponent";
-import HorizontalDivider from "../components/Horizontaldivider";
-
 
     const DATA = [
       {name: 'Shaun',pno: 1234567890,},
@@ -23,7 +21,6 @@ import HorizontalDivider from "../components/Horizontaldivider";
            return ContactComponent(item, navigation);
           }}
           keyExtractor = {(item,index) => index.toString()}
-          ItemSeparatorComponent = {HorizontalDivider}
         />
     );
   }

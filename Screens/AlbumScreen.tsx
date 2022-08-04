@@ -3,8 +3,6 @@ import React from "react";
 import { View, SafeAreaView, Image, Text, FlatList} from "react-native";
 import { StyleSheet } from "react-native";
 import AlbumComponent from "../components/albumcomponent";
-import HorizontalDivider from "../components/Horizontaldivider";
-// import {train} from '../assets/images.jpg';
 
 const DATA = [
   {
@@ -30,7 +28,6 @@ function AlbumScreen({navigation}: any) {
       }}
       numColumns={2}
       keyExtractor={(item, index) => index.toString()}
-      ItemSeparatorComponent={HorizontalDivider}
     />
   );
 }
