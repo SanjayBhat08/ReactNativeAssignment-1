@@ -1,50 +1,38 @@
+import { CardAnimationContext } from "@react-navigation/stack";
 import React from "react";
-import { View, Image, Text} from "react-native";
+import { View, SafeAreaView, Image, Text, FlatList} from "react-native";
 import { StyleSheet } from "react-native";
+import AlbumComponent from "../components/albumcomponent";
+import HorizontalDivider from "../components/Horizontaldivider";
+// import {train} from '../assets/images.jpg';
 
-function AlbumScreen() {
-    return (
-      <View>
-        <Text style={styles.textStyle}>PHOTOS</Text>
-        <Image style={styles.imagestyle}
-          source={{
-            uri: 'https://reactnative.dev/img/tiny_logo.png',
-          }}
-        />
-        <Image style={styles.imagestyle}
-          source={{
-            uri: 'https://reactjs.org/logo-og.png',
-          }}
-        />
-        <Image style={styles.imagestyle}
-          source={{
-            uri: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg==',
-          }}
-        />
-      </View>
-    );
-  }
+const DATA = [
+  {
+    img: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1883&q=80',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=452&q=80',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1514316454349-750a7fd3da3a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80',
+  },
+];
 
-  const styles = StyleSheet.create({
-    imagestyle: {
-        resizeMode: "contain",
-        height: 120,
-        width: 200,
-        marginBottom: 10,
-        // alignItems: 'center',
-        // justifyContent: 'center',
-        marginLeft:'25%',
-        marginRight:'25%',
-      },
-      textStyle: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontSize: 30,
-        fontWeight: 'Bold',
-        backgroundColor: 'yellow',
-        borderBottomWidth: 8,
-        borderBottomColor: 'white',
-      },
-  });
+function AlbumScreen({navigation}: any) {
+  return (
+    <FlatList
+      data={[...DATA, ...DATA, ...DATA, ...DATA, ...DATA]}
+      renderItem={({item}) => {
+        return AlbumComponent(item, navigation);
+      }}
+      numColumns={2}
+      keyExtractor={(item, index) => index.toString()}
+      ItemSeparatorComponent={HorizontalDivider}
+    />
+  );
+}
 
-  export default AlbumScreen;
+export default AlbumScreen;
